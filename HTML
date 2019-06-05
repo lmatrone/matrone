@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Formulario</title>
+  </head>
+  <body>
+    <h1>
+      Meu Formulário
+    </h1>
+    <form name="formImovel" id="formImovel" action="#" method="post">
+      <label for="proprietario">Proprietario:</label>
+      <input type="text" name="proprietario" id="proprietario" size=50 maxlenght=100 placeholder="(insira o nome do proprietário)" />
+      <br/>
+      <label for="matricula">Matrícula:</label>
+      <input type="number" size="10" maxlenght="7" name= "matricula" id="matricula" placeholder="numero da matricula" />
+      <br/>
+      <br/>
+      <button type="submit" onclick="registraImovel()">Registrar</button>
+      <button type="reset" onclick="limpaCampo()">Recomeçar</button>
+    </form>
+    <script> //função em Javascript dentro do HTML (poderia ser vinculada em local externo).
+        function registraImovel() {
+            event.preventDefault(); // para evitar que ele siga o padrão do botão (jogar para outro banco de dados)
+            var form = document.formImovel;
+            if(form.proprietario.value == "") {
+                alert("Você deve informar o nome do proprietário");
+                form.proprietario.focus();
+                return;
+            }
+            alert("O proprietario é: " + form.proprietario.value + " sob matrícula: " + form.matricula.value);
+         }
+        
+    </script>
+    <script src="limpacampo.js"></script>"
+  </body>
+</html>
